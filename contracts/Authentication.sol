@@ -1,37 +1,46 @@
 pragma solidity ^0.4.2;
 
 contract Authentication {
-  struct User = {
-    string name;
+  struct User {
+    bytes32 name;
   }
 
   mapping (address => User) private users;
 
-  function login() {
-    storedData = x;
+  uint private id; // Stores user id temporarily
 
+  function login() constant returns (bytes32) {
     // Check if user exists.
     // If yes, return user.
     // If no, throw.
 
-    return users[msg.sender]
+    if (users[msg.sender].name == 0x0)
+    {
+        throw;
+    }
+
+    return (users[msg.sender].name);
   }
 
-  function signup() {
+  function signup(bytes32 name) payable returns (bytes32) {
     // Check if user exists.
-    // If yes, return user.
+    // If yes, return user name.
     // If no, check if name was sent.
     // If yes, create and return user.
     // If no, throw.
 
-    return users[msg.sender]
-  }
+    if (name == 0x0)
+    {
+        throw;
+    }
 
-  function delete() {
-    // Check if user exists.
-    // If yes, delete and return true.
-    // If no, return false or throw.
+    if (users[msg.sender].name == 0x0)
+    {
+        users[msg.sender].name = name;
 
-    return true;
+        return (users[msg.sender].name);
+    }
+
+    return (users[msg.sender].name);
   }
 }
