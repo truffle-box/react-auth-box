@@ -9,6 +9,7 @@ import { UserIsAuthenticated, UserIsNotAuthenticated } from './util/wrappers.js'
 import App from './App';
 import Home from './home/Home';
 import Dashboard from './dashboard/Dashboard';
+import SignUp from './signup/SignUp';
 import store from './store';
 
 // Config
@@ -22,6 +23,7 @@ ReactDOM.render((
         <Route path="/" component={App}>
           <IndexRoute component={UserIsNotAuthenticated(Home)} />
           <Route path="dashboard" component={UserIsAuthenticated(Dashboard)} />
+          <Route path="signup" component={SignUp} />
           {/*<Route path="*" component={Status404} />*/}
         </Route>
       </Router>
