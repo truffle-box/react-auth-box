@@ -10,6 +10,8 @@ import App from './App';
 import Home from './home/Home';
 import Dashboard from './dashboard/Dashboard';
 import SignUp from './signup/SignUp';
+import Profile from './profile/Profile';
+
 import store from './store';
 
 // Config
@@ -21,9 +23,10 @@ ReactDOM.render((
     <Provider store={store}>
       <Router history={history}>
         <Route path="/" component={App}>
-          <IndexRoute component={UserIsNotAuthenticated(Home)} />
+          <IndexRoute component={Home} />
           <Route path="dashboard" component={UserIsAuthenticated(Dashboard)} />
-          <Route path="signup" component={SignUp} />
+          <Route path="signup" component={UserIsNotAuthenticated(SignUp)} />
+          <Route path="profile" component={UserIsAuthenticated(Profile)} />
           {/*<Route path="*" component={Status404} />*/}
         </Route>
       </Router>

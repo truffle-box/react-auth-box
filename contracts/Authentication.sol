@@ -45,4 +45,22 @@ contract Authentication is Killable {
 
     return (users[msg.sender].name);
   }
+
+  function update(bytes32 name) payable returns (bytes32) {
+    // Update user name.
+
+    if (name == 0x0)
+    {
+        throw;
+    }
+
+    if (users[msg.sender].name != 0x0)
+    {
+        users[msg.sender].name = name;
+
+        return (users[msg.sender].name);
+    }
+
+    throw;
+  }
 }

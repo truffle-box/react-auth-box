@@ -9,7 +9,7 @@ class Dashboard extends Component {
         <div className="pure-g">
           <div className="pure-u-1-1">
             <h1>Dashboard</h1>
-            <p><strong>Congratulations {this.props.authData.name}!</strong> If you're seeing this page, you've logged in with UPort successfully.</p>
+            <p><strong>Congratulations {this.props.authData.name}!</strong> If you're seeing this page, you've logged in with your own smart contract successfully.</p>
           </div>
         </div>
       </main>

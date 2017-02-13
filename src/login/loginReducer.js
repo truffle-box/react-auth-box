@@ -12,7 +12,7 @@ const loginReducer = (state = initialState, action) => {
 
   if (action.type === 'USER_LOGGED_OUT')
   {
-    return initialState
+    return {}
   }
 
   return state
