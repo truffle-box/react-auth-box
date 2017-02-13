@@ -13,14 +13,25 @@ import './App.css'
 
 class App extends Component {
   render() {
-    const OnlyAuthLinks = VisibleOnlyAuth(() => <span><li className="pure-menu-item">
-                        <Link to="/dashboard" className="pure-menu-link">Dashboard</Link>
-                      </li>
-                      <li className="pure-menu-item">
-                        <Link to="/profile" className="pure-menu-link">Profile</Link>
-                      </li></span>)
+    const OnlyAuthLinks = VisibleOnlyAuth(() =>
+      <span>
+        <li className="pure-menu-item">
+          <Link to="/dashboard" className="pure-menu-link">Dashboard</Link>
+        </li>
+        <li className="pure-menu-item">
+          <Link to="/profile" className="pure-menu-link">Profile</Link>
+        </li>
+      </span>
+    )
 
-    const OnlyGuestLinks = HiddenOnlyAuth(() => <LoginButtonContainer />)
+    const OnlyGuestLinks = VisibleOnlyAuth(() =>
+      <span>
+        <li className="pure-menu-item">
+          <Link to="/signup" className="pure-menu-link">Sign Up</Link>
+        </li>
+        <LoginButtonContainer />
+      </span>
+    )
 
     return (
       <div className="App">
