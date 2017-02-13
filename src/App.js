@@ -4,6 +4,7 @@ import { HiddenOnlyAuth, VisibleOnlyAuth } from './util/wrappers.js'
 
 // UI Components
 import LoginButtonContainer from './login/LoginButtonContainer'
+import LogoutButtonContainer from './logoutbutton/LogoutButtonContainer'
 
 // Styles
 import './css/oswald.css'
@@ -21,6 +22,7 @@ class App extends Component {
         <li className="pure-menu-item">
           <Link to="/profile" className="pure-menu-link">Profile</Link>
         </li>
+        <LogoutButtonContainer />
       </span>
     )
 
@@ -36,11 +38,11 @@ class App extends Component {
     return (
       <div className="App">
         <nav className="navbar pure-menu pure-menu-horizontal">
-            <Link to="/" className="pure-menu-heading pure-menu-link">Truffle Box</Link>
-            <ul className="pure-menu-list navbar-right">
-                <OnlyGuestLinks />
-                <OnlyAuthLinks />
-            </ul>
+          <Link to="/" className="pure-menu-heading pure-menu-link">Truffle Box</Link>
+          <ul className="pure-menu-list navbar-right">
+            <OnlyGuestLinks />
+            <OnlyAuthLinks />
+          </ul>
         </nav>
 
         {this.props.children}

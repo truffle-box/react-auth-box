@@ -38,9 +38,7 @@ export function loginUser() {
         return browserHistory.push('/signup')
       })
       .then(function(result) {
-        console.log(result)
-
-        // If no error, go to intended page.
+        // If no error, login user.
         var userName = web3.toUtf8(result)
 
         dispatch(userLoggedIn({"name": userName}))

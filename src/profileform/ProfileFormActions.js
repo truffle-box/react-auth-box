@@ -30,15 +30,14 @@ export function updateUser(name) {
       authenticationInstance = instance
 
       // Attempt to login user.
-      authenticationInstance.signup(name, {from: coinbase})
+      authenticationInstance.update(name, {from: coinbase})
       .catch(function(result) {
-        // If error, go to signup page.
-        console.log('Wallet ' + coinbase + ' does not have an account!')
-
-        return browserHistory.push('/signup')
+        // If error...
       })
       .then(function(result) {
-        // If no error, login user.
+        // If no error, update user.
+
+        dispatch(userUpdated({"name": name}))
       })
     })
   }

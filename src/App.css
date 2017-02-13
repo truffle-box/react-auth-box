@@ -22,6 +22,18 @@ code {
   padding: 45px 20px;
 }
 
+.pure-button-primary {
+  background-color: #0c1a2b;
+}
+
+.pure-button-primary:hover {
+  background-color: #233e5e;
+}
+
+.pure-form input[type="text"]:focus {
+  border-color: #0c1a2b;
+}
+
 /* NAVBAR */
 
 .navbar {
