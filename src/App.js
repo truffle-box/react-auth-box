@@ -24,7 +24,7 @@ class App extends Component {
       </span>
     )
 
-    const OnlyGuestLinks = VisibleOnlyAuth(() =>
+    const OnlyGuestLinks = HiddenOnlyAuth(() =>
       <span>
         <li className="pure-menu-item">
           <Link to="/signup" className="pure-menu-link">Sign Up</Link>

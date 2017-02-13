@@ -23,7 +23,7 @@ export function loginUser() {
     // Declaring this for later so we can chain functions on Authentication.
     var authenticationInstance
 
-    // Get current ethereum wallet. TODO: Wrap in try/catch.
+    // Get current ethereum wallet.
     var coinbase = web3.eth.coinbase;
 
     authentication.deployed().then(function(instance) {
@@ -45,11 +45,13 @@ export function loginUser() {
 
         dispatch(userLoggedIn({"name": userName}))
 
+        // Used a manual redirect here as opposed to a wrapper.
+        // This way, once logged in a user can still access the home page.
         var currentLocation = browserHistory.getCurrentLocation()
 
-        if ('query' in currentLocation.query)
+        if ('redirect' in currentLocation.query)
         {
-          return browserHistory.push(currentLocation.query.redirect)
+          return browserHistory.push(decodeURIComponent(currentLocation.query.redirect))
         }
 
         return browserHistory.push('/dashboard')
