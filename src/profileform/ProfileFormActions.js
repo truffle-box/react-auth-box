@@ -38,6 +38,8 @@ export function updateUser(name) {
         // If no error, update user.
 
         dispatch(userUpdated({"name": name}))
+
+        alert('Name updated!')
       })
     })
   }
