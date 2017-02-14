@@ -2,7 +2,7 @@ const initialState = {
   data: null
 }
 
-const loginReducer = (state = initialState, action) => {
+const userReducer = (state = initialState, action) => {
   if (action.type === 'USER_LOGGED_IN' || action.type === 'USER_UPDATED')
   {
     return Object.assign({}, state, {
@@ -20,4 +20,4 @@ const loginReducer = (state = initialState, action) => {
   return state
 }
 
-export default loginReducer
+export default userReducer
