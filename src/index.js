@@ -28,7 +28,6 @@ ReactDOM.render((
           <Route path="dashboard" component={UserIsAuthenticated(Dashboard)} />
           <Route path="signup" component={UserIsNotAuthenticated(SignUp)} />
           <Route path="profile" component={UserIsAuthenticated(Profile)} />
-          {/*<Route path="*" component={Status404} />*/}
         </Route>
       </Router>
     </Provider>
