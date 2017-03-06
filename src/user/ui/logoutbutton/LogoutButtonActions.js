@@ -1,4 +1,3 @@
-import Web3 from 'web3'
 import { browserHistory } from 'react-router'
 
 export const USER_LOGGED_OUT = 'USER_LOGGED_OUT'

@@ -15,9 +15,6 @@ import Profile from './user/layouts/profile/Profile';
 // Redux Store
 import store from './store';
 
-// Config
-import truffleConfig from './../truffle-config.js'
-
 const history = syncHistoryWithStore(browserHistory, store)
 
 ReactDOM.render((

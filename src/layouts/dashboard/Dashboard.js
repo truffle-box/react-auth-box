@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
 
 class Dashboard extends Component {
-  render() {
-    const { authData } = this.props
+  constructor(props, { authData }) {
+    super(props)
+    this.props.authData = authData
+  }
 
+  render() {
     return(
       <main className="container">
         <div className="pure-g">
