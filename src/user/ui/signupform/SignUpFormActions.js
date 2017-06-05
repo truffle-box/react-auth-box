@@ -1,35 +1,46 @@
-import Web3 from 'web3'
 import AuthenticationContract from '../../../../build/contracts/Authentication.json'
 import { loginUser } from '../loginbutton/LoginButtonActions'
+import store from '../../../store'
 
-const provider = new Web3.providers.HttpProvider('http://localhost:8545')
-const web3 = new Web3(provider)
 const contract = require('truffle-contract')
 
 export function signUpUser(name) {
-  return function(dispatch) {
-    // Using truffle-contract we create the authentication object.
-    const authentication = contract(AuthenticationContract)
-    authentication.setProvider(provider)
+  let web3 = store.getState().web3.web3Instance
 
-    // Declaring this for later so we can chain functions on Authentication.
-    var authenticationInstance
+  // Double-check web3's status.
+  if (typeof web3 !== 'undefined') {
 
-    // Get current ethereum wallet.
-    var coinbase = web3.eth.coinbase;
+    return function(dispatch) {
+      // Using truffle-contract we create the authentication object.
+      const authentication = contract(AuthenticationContract)
+      authentication.setProvider(web3.currentProvider)
 
-    authentication.deployed().then(function(instance) {
-      authenticationInstance = instance
+      // Declaring this for later so we can chain functions on Authentication.
+      var authenticationInstance
 
-      // Attempt to sign up user.
-      authenticationInstance.signup(name, {from: coinbase})
-      .catch(function(result) {
-        // If error...
+      // Get current ethereum wallet.
+      web3.eth.getCoinbase((error, coinbase) => {
+        // Log errors, if any.
+        if (error) {
+          console.error(error);
+        }
+
+        authentication.deployed().then(function(instance) {
+          authenticationInstance = instance
+
+          // Attempt to sign up user.
+          authenticationInstance.signup(name, {from: coinbase})
+          .then(function(result) {
+            // If no error, login user.
+            return dispatch(loginUser())
+          })
+          .catch(function(result) {
+            // If error...
+          })
+        })
       })
-      .then(function(result) {
-        // If no error, login user.
-        dispatch(loginUser())
-      })
-    })
+    }
+  } else {
+    console.error('Web3 is not initialized.');
   }
 }
