@@ -1,5 +1,5 @@
 {
-  "name": "redux-metamask-auth",
+  "name": "react-auth-box",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
@@ -30,7 +30,7 @@
     "gzip-size": "3.0.0",
     "html-webpack-plugin": "2.24.0",
     "http-proxy-middleware": "0.17.2",
-    "jest": "17.0.2",
+    "jest": "18.1.0",
     "json-loader": "0.5.4",
     "object-assign": "4.1.0",
     "path-exists": "2.1.0",
@@ -67,20 +67,20 @@
       "src/**/*.{js,jsx}"
     ],
     "setupFiles": [
-      "<rootDir>\\config\\polyfills.js"
+      "<rootDir>/config/polyfills.js"
     ],
     "testPathIgnorePatterns": [
-      "<rootDir>[/\\\\](build|docs|node_modules)[/\\\\]"
+      "<rootDir>[/](build|docs|node_modules)[/]"
     ],
     "testEnvironment": "node",
     "testURL": "http://localhost",
     "transform": {
-      "^.+\\.(js|jsx)$": "<rootDir>/node_modules/babel-jest",
-      "^.+\\.css$": "<rootDir>\\config\\jest\\cssTransform.js",
-      "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>\\config\\jest\\fileTransform.js"
+      "^.+/.(js|jsx)$": "<rootDir>/node_modules/babel-jest",
+      "^.+/.css$": "<rootDir>/config/jest/cssTransform.js",
+      "^(?!.*/.(js|jsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
     },
     "transformIgnorePatterns": [
-      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"
+      "[/]node_modules[/].+/.(js|jsx)$"
     ],
     "moduleNameMapper": {
       "^react-native$": "react-native-web"
