@@ -70,7 +70,7 @@
       "<rootDir>/config/polyfills.js"
     ],
     "testPathIgnorePatterns": [
-      "<rootDir>[/](build|docs|node_modules|scripts)[/]"
+      "<rootDir>[/\\\\](build|docs|node_modules|scripts)[/\\\\]"
     ],
     "testEnvironment": "node",
     "testURL": "http://localhost",
@@ -80,7 +80,7 @@
       "^(?!.*/.(js|jsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
     },
     "transformIgnorePatterns": [
-      "[/]node_modules[/].+/.(js|jsx)$"
+      "[/\\\\]node_modules[/\\\\].+/.(js|jsx)$"
     ],
     "moduleNameMapper": {
       "^react-native$": "react-native-web"
