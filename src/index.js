@@ -7,14 +7,14 @@ import { UserIsAuthenticated, UserIsNotAuthenticated } from './util/wrappers.js'
 import getWeb3 from './util/web3/getWeb3'
 
 // Layouts
-import App from './App';
-import Home from './layouts/home/Home';
-import Dashboard from './layouts/dashboard/Dashboard';
-import SignUp from './user/layouts/signup/SignUp';
-import Profile from './user/layouts/profile/Profile';
+import App from './App'
+import Home from './layouts/home/Home'
+import Dashboard from './layouts/dashboard/Dashboard'
+import SignUp from './user/layouts/signup/SignUp'
+import Profile from './user/layouts/profile/Profile'
 
 // Redux Store
-import store from './store';
+import store from './store'
 
 // Initialize react-router-redux.
 const history = syncHistoryWithStore(browserHistory, store)
@@ -41,4 +41,4 @@ ReactDOM.render((
     </Provider>
   ),
   document.getElementById('root')
-);
+)
