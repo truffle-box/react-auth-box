@@ -38,11 +38,11 @@ class App extends Component {
     return (
       <div className="App">
         <nav className="navbar pure-menu pure-menu-horizontal">
-          <Link to="/" className="pure-menu-heading pure-menu-link">Truffle Box</Link>
           <ul className="pure-menu-list navbar-right">
             <OnlyGuestLinks />
             <OnlyAuthLinks />
           </ul>
+          <Link to="/" className="pure-menu-heading pure-menu-link">Truffle Box</Link>
         </nav>
 
         {this.props.children}
