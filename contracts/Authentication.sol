@@ -26,12 +26,14 @@ contract Authentication is Killable {
   }
 
   function login() constant
+  public
   onlyExistingUser
   returns (bytes32) {
     return (users[msg.sender].name);
   }
 
   function signup(bytes32 name)
+  public
   payable
   onlyValidName(name)
   returns (bytes32) {
@@ -51,6 +53,7 @@ contract Authentication is Killable {
   }
 
   function update(bytes32 name)
+  public
   payable
   onlyValidName(name)
   onlyExistingUser
