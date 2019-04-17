@@ -1,3 +1,5 @@
+⚠️ **No new changes will be made to this box! Truffle no longer actively maintains official boxes that encourage production use of their included contracts. [We encourage you to take a look at other boxes in our listing that offer authentication](https://truffleframework.com/boxes).**
+
 # React, Redux and Authentication Truffle Box
 
 In addition to Webpack and React, this box adds: react-router, redux and redux-auth-wrapper for authentication powered by a smart contract. Great for building your own auth system.
